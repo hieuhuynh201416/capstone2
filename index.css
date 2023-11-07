@@ -180,11 +180,16 @@ nav ul li:nth-child(9):hover a {
 }
 
 .slider-product-one-content-item {
-  /* Định dạng cho từng sản phẩm */
-  /* Ví dụ: width, border, margin, padding, ... */
-  width: calc(25% - 15px); /* Đảm bảo 4 cột và khoảng cách giữa các sản phẩm */
+  width: calc(25% - 15px);
   margin-bottom: 20px;
 }
 .slider-product-one-content-item img {
   width: 100%;
+}
+
+/* Định dạng cho sản phẩm khi trỏ chuột vào */
+.slider-product-one-content-item:hover {
+  transform: scale(1.05); /* Phóng to sản phẩm */
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Đổ bóng sản phẩm */
 }
