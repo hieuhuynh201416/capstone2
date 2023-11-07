@@ -172,3 +172,19 @@ nav ul li:nth-child(9):hover a {
   width: 100%;
   margin: auto;
 }
+
+.slider-product-one-content-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.slider-product-one-content-item {
+  /* Định dạng cho từng sản phẩm */
+  /* Ví dụ: width, border, margin, padding, ... */
+  width: calc(25% - 15px); /* Đảm bảo 4 cột và khoảng cách giữa các sản phẩm */
+  margin-bottom: 20px;
+}
+.slider-product-one-content-item img {
+  width: 100%;
+}

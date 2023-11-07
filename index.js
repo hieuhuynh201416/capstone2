@@ -41,7 +41,7 @@ function displayProducts(products) {
             <p>Màn hình: ${product.screen}</p>
             <p>Máy ảnh sau: ${product.backCamera}</p>
             <p>Máy ảnh trước: ${product.frontCamera}</p>
-            <p>${product.desc}</p>
+            <p>Mô tả:${product.desc}</p>
             <p>Loại: ${product.type}</p>
         `;
 
