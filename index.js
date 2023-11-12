@@ -1,3 +1,23 @@
+const imgNumber = document.querySelectorAll(".slider-content-left-top img")
+let index = 0;
+const rightbtn = document.querySelector('.fa-chevron-right')
+const leftbtn = document.querySelector('.fa-chevron-left')
+rightbtn.addEventListener("click",function(){
+index = index +1;
+if(index>imgNumber.length-1){
+  index = 0
+}
+  document.querySelector(".slider-content-left-top").style.right = index *100 + "%"
+})
+leftbtn.addEventListener("click",function(){
+  index = index -1;
+if(index<=0){
+  index = imgNumber.length -1
+}
+  document.querySelector(".slider-content-left-top").style.right = index *100 + "%"
+})
+
+
 // Lớp đối tượng Product
 class Product {
   constructor(
@@ -36,15 +56,16 @@ function displayProducts(products) {
     productDiv.innerHTML = `
             <div><img src="${product.img}" alt="${product.name}"></div>
             <!-- Hiển thị thông tin sản phẩm -->
-            <h3 style="text-align: center">${product.name}</h3>
+            <div class="product-name-container"  style="text-align: center"> <h3>${product.name}</h3></div>
+            <div class="product-detail-container">
             <p style="color:red; font-size: 30px" > $${product.price}</p>
             <p><strong>Màn hình:</strong> ${product.screen}</p>
             <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
             <p><strong>Máy ảnh trước:</strong> ${product.frontCamera} pixel</p>
             <p><strong>Mô tả:</strong>${product.desc}</p>
-            <p><strong>Loại:</strong> ${product.type ? 'Samsung' : 'iPhone'}</p>
+            <p><strong>Loại:</strong> ${product.type ? 'Samsung' : 'iPhone'}</p></div>
         `;
-
+       
     productList.appendChild(productDiv);
   });
 }
