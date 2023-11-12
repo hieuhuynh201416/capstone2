@@ -36,13 +36,13 @@ function displayProducts(products) {
     productDiv.innerHTML = `
             <div><img src="${product.img}" alt="${product.name}"></div>
             <!-- Hiển thị thông tin sản phẩm -->
-            <h3>${product.name}</h3>
-            <p>Giá: $${product.price}</p>
-            <p>Màn hình: ${product.screen}</p>
-            <p>Máy ảnh sau: ${product.backCamera}</p>
-            <p>Máy ảnh trước: ${product.frontCamera}</p>
-            <p>Mô tả:${product.desc}</p>
-            <p>Loại: ${product.type}</p>
+            <h3 style="text-align: center">${product.name}</h3>
+            <p style="color:red; font-size: 30px" > $${product.price}</p>
+            <p><strong>Màn hình:</strong> ${product.screen}</p>
+            <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
+            <p><strong>Máy ảnh trước:</strong> ${product.frontCamera} pixel</p>
+            <p><strong>Mô tả:</strong>${product.desc}</p>
+            <p><strong>Loại:</strong> ${product.type ? 'Samsung' : 'iPhone'}</p>
         `;
 
     productList.appendChild(productDiv);
