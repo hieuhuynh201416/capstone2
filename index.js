@@ -19,6 +19,8 @@ leftbtn.addEventListener("click", function () {
     index * 100 + "%";
 });
 
+let rawProducts = []
+
 // Lớp đối tượng Product
 class Product {
   constructor(
@@ -50,6 +52,8 @@ function displayProducts(products) {
     ".slider-product-one-content-items"
   );
 
+  productList.innerHTML = '';
+
   products.forEach((product) => {
     const productDiv = document.createElement("div");
     productDiv.className = "slider-product-one-content-item";
@@ -57,9 +61,8 @@ function displayProducts(products) {
     productDiv.innerHTML = `
             <div><img src="${product.img}" alt="${product.name}"></div>
             <!-- Hiển thị thông tin sản phẩm -->
-            <div class="product-name-container"  style="text-align: center"> <h3>${
-              product.name
-            }</h3></div>
+            <div class="product-name-container"  style="text-align: center"> <h3>${product.name
+      }</h3></div>
             <div class="product-detail-container">
             <p style="color:red; font-size: 30px" > $${product.price}</p>
             <p><strong>Màn hình:</strong> ${product.screen}</p>
@@ -68,7 +71,18 @@ function displayProducts(products) {
             <p><strong>Mô tả:</strong>${product.desc}</p>
             <p><strong>Loại:</strong>
             <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
-            </p></div>
+            
+            </p>
+            <p><button
+             class = "btn-success";
+             style="background-color: #f3f4f6;
+             border: 1px solid #e5e7eb;
+             border-radius: 10px;
+             height:34px;
+             margin: 0 10px 10px 0;
+             
+              "><i class="fas fa-shopping-cart"></i> Thêm Giỏ Hàng </button></p>
+            </div>
         `;
 
     productList.appendChild(productDiv);
@@ -93,6 +107,7 @@ fetch("https://653122e04d4c2e3f333c71f9.mockapi.io/capstone2")
           item.type
         )
     );
+    rawProducts = products;
     displayProducts(products);
   });
 
@@ -103,28 +118,20 @@ const products = [
 
 // Hiển thị tất cả sản phẩm ban đầu
 function showAllProducts() {
-  const productItems = document.querySelectorAll(
-    ".slider-product-one-content-item"
-  );
-  productItems.forEach((product) => {
-    product.style.display = "block";
-  });
+  displayProducts(rawProducts);
 }
 
 //******************* */ Lọc sản phẩm theo loại
 function filterProducts(type) {
-  const productItems = document.querySelectorAll(
-    ".slider-product-one-content-item"
-  );
-  productItems.forEach((product) => {
-    const productType = product.querySelector("#loaiSp").innerText;
-
-    if (type === "All" || productType === type) {
-      product.style.display = "block"; // Hiển thị tất cả sản phẩm hoặc sản phẩm thuộc loại được chọn
+  const filteredProducts = rawProducts.filter((product) => {
+    // return type === "Samsung" ? !product.type : product.type;
+    if (type === 'Samsung') {
+      return product.type === true;
     } else {
-      product.style.display = "none"; // Ẩn các sản phẩm không thuộc loại được chọn
-    }
+      return product.type === false;
+    };
   });
+  displayProducts(filteredProducts);
 }
 
 // Bắt sự kiện click cho nút lọc Samsung
@@ -141,17 +148,3 @@ document.querySelector(".filterAll").addEventListener("click", () => {
   showAllProducts();
 });
 
-//************ */ Add vào giỏ hàng
-const addToCartButton = document.querySelector(".btn-success");
-const cartButton = document.querySelector(".add-to-cart-button");
-
-let cartCount = 0;
-
-// Add nút "Thêm vào giỏ hàng"
-addToCartButton.addEventListener("click", function () {
-  // Increment the count
-  cartCount++;
-
-  // Update đếm giỏ hàng
-  cartButton.querySelector(".cart-count").innerText = cartCount;
-});

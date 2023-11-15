@@ -183,9 +183,15 @@ nav ul li:nth-child(9):hover a {
 }
 .slider-product-one-content button {
   font-size: 25px;
-  border-radius: 5px;
+  color: black;
   cursor: pointer;
+  border: 1px solid #e5e7eb;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+  padding: 5px 10px;
 }
+
+
 /********************** Slider content*/
 li {
   list-style: none;
