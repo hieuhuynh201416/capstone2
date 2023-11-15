@@ -66,9 +66,9 @@ function displayProducts(products) {
             <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
             <p><strong>Máy ảnh trước:</strong> ${product.frontCamera} pixel</p>
             <p><strong>Mô tả:</strong>${product.desc}</p>
-            <p><strong>Loại:</strong> ${
-              product.type ? "Samsung" : "iPhone"
-            }</p></div>
+            <p><strong>Loại:</strong>
+            <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
+            </p></div>
         `;
 
     productList.appendChild(productDiv);
@@ -96,50 +96,62 @@ fetch("https://653122e04d4c2e3f333c71f9.mockapi.io/capstone2")
     displayProducts(products);
   });
 
-// Lọc sản phẩm theo loại
+// Danh sách sản phẩm
+const products = [
+  // Danh sách sản phẩm của bạn
+];
+
+// Hiển thị tất cả sản phẩm ban đầu
+function showAllProducts() {
+  const productItems = document.querySelectorAll(
+    ".slider-product-one-content-item"
+  );
+  productItems.forEach((product) => {
+    product.style.display = "block";
+  });
+}
+
+//******************* */ Lọc sản phẩm theo loại
 function filterProducts(type) {
   const productItems = document.querySelectorAll(
     ".slider-product-one-content-item"
   );
-
   productItems.forEach((product) => {
-    const productType = product.dataset.type;
+    const productType = product.querySelector("#loaiSp").innerText;
 
     if (type === "All" || productType === type) {
-      product.style.display = "block"; // Hiển thị sản phẩm thuộc loại được chọn hoặc tất cả sản phẩm
+      product.style.display = "block"; // Hiển thị tất cả sản phẩm hoặc sản phẩm thuộc loại được chọn
     } else {
       product.style.display = "none"; // Ẩn các sản phẩm không thuộc loại được chọn
     }
   });
 }
 
-// Bắt sự kiện click cho nút lọc
-const filterButtons = document.querySelectorAll(".filterButton");
-
-filterButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const type = button.dataset.type;
-    filterProducts(type);
-  });
+// Bắt sự kiện click cho nút lọc Samsung
+document.querySelector(".filterSamSung").addEventListener("click", () => {
+  filterProducts("Samsung");
 });
 
-// Gọi API MockAPI để lấy danh sách sản phẩm và hiển thị
-fetch("https://653122e04d4c2e3f333c71f9.mockapi.io/capstone2")
-  .then((response) => response.json())
-  .then((data) => {
-    const products = data.map((item) => {
-      return new Product(
-        item.id,
-        item.name,
-        item.price,
-        item.screen,
-        item.backCamera,
-        item.frontCamera,
-        item.img,
-        item.desc,
-        item.type
-      );
-    });
+// Bắt sự kiện click cho nút lọc iPhone
+document.querySelector(".filterIphone").addEventListener("click", () => {
+  filterProducts("iPhone");
+});
 
-    displayProducts(products);
-  });
+document.querySelector(".filterAll").addEventListener("click", () => {
+  showAllProducts();
+});
+
+//************ */ Add vào giỏ hàng
+const addToCartButton = document.querySelector(".btn-success");
+const cartButton = document.querySelector(".add-to-cart-button");
+
+let cartCount = 0;
+
+// Add nút "Thêm vào giỏ hàng"
+addToCartButton.addEventListener("click", function () {
+  // Increment the count
+  cartCount++;
+
+  // Update đếm giỏ hàng
+  cartButton.querySelector(".cart-count").innerText = cartCount;
+});
