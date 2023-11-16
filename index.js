@@ -1,3 +1,4 @@
+//***************Slide */
 const imgNumber = document.querySelectorAll(".slider-content-left-top img");
 let index = 0;
 const rightbtn = document.querySelector(".fa-chevron-right");
@@ -18,8 +19,23 @@ leftbtn.addEventListener("click", function () {
   document.querySelector(".slider-content-left-top").style.right =
     index * 100 + "%";
 });
+//***************Slide 1 */
+const imgNumberLi = document.querySelectorAll(".slider-content-left-bottom li");
 
-let rawProducts = []
+imgNumberLi.forEach(function (image, index) {
+  image.addEventListener("click", function () {
+    removeactive();
+    document.querySelector(".slider-content-left-top").style.right =
+      index * 100 + "%";
+    image.classList.add("active");
+  });
+});
+function removeactive() {
+  let imgactive = document.querySelector(".active");
+  imgactive.classList.remove("active");
+}
+
+let rawProducts = [];
 
 // Lớp đối tượng Product
 class Product {
@@ -52,7 +68,7 @@ function displayProducts(products) {
     ".slider-product-one-content-items"
   );
 
-  productList.innerHTML = '';
+  productList.innerHTML = "";
 
   products.forEach((product) => {
     const productDiv = document.createElement("div");
@@ -61,8 +77,9 @@ function displayProducts(products) {
     productDiv.innerHTML = `
             <div><img src="${product.img}" alt="${product.name}"></div>
             <!-- Hiển thị thông tin sản phẩm -->
-            <div class="product-name-container"  style="text-align: center"> <h3>${product.name
-      }</h3></div>
+            <div class="product-name-container"  style="text-align: center"> <h3>${
+              product.name
+            }</h3></div>
             <div class="product-detail-container">
             <p style="color:red; font-size: 30px" > $${product.price}</p>
             <p><strong>Màn hình:</strong> ${product.screen}</p>
@@ -74,12 +91,12 @@ function displayProducts(products) {
             
             </p>
             <p><button
-             class = "btn-success";
-             style="background-color: #f3f4f6;
-             border: 1px solid #e5e7eb;
+             class = "gioHang";
+             style="background-color: #fed100;
+             border: 1px solid #ffc107;
              border-radius: 10px;
              height:34px;
-             margin: 0 10px 10px 0;
+             margin: 10px 12px 12px 0;
              
               "><i class="fas fa-shopping-cart"></i> Thêm Giỏ Hàng </button></p>
             </div>
@@ -125,11 +142,11 @@ function showAllProducts() {
 function filterProducts(type) {
   const filteredProducts = rawProducts.filter((product) => {
     // return type === "Samsung" ? !product.type : product.type;
-    if (type === 'Samsung') {
+    if (type === "Samsung") {
       return product.type === true;
     } else {
       return product.type === false;
-    };
+    }
   });
   displayProducts(filteredProducts);
 }
@@ -147,4 +164,3 @@ document.querySelector(".filterIphone").addEventListener("click", () => {
 document.querySelector(".filterAll").addEventListener("click", () => {
   showAllProducts();
 });
-

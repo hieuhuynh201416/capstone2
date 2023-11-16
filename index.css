@@ -191,7 +191,6 @@ nav ul li:nth-child(9):hover a {
   padding: 5px 10px;
 }
 
-
 /********************** Slider content*/
 li {
   list-style: none;
@@ -244,6 +243,7 @@ li {
 }
 .slider-content-left-bottom li.active {
   border-top: 4px solid #ffc107;
+  font-weight: bold;
 }
 .slider-content-right {
   width: 35%;
@@ -326,7 +326,9 @@ li {
   width: 100%;
   margin: auto;
 }
-
+.slider-product-one-content {
+  background-color: #ffc107;
+}
 .slider-product-one-content-items {
   display: flex;
   flex-wrap: wrap;
@@ -354,7 +356,9 @@ li {
   transition: transform 0.2s ease;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Đổ bóng sản phẩm */
 }
-
+.slider-product-one-content-button button:hover {
+  color: #9dc0fa;
+}
 /* footer */
 footer {
   top: 30px;
