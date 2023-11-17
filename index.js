@@ -35,8 +35,27 @@ function removeactive() {
   imgactive.classList.remove("active");
 }
 
-let rawProducts = [];
 
+
+let rawProducts = [];
+var dataJson = localStorage.getItem("DSSP_LOCAL");
+if (dataJson != null) {
+  let result = JSON.parse(dataJson);
+  rawProducts = result.map(function (item){
+    return new productsCart(
+    item.id ,
+    item.name,
+    item.price,
+    item.screen,
+    item.backCamera,
+    item.frontCamera,
+    item.img,
+    item.desc,
+    item.type,
+    );
+  });
+  displayProducts(rawProducts);
+}
 // Lớp đối tượng Product
 class Product {
   constructor(
@@ -61,6 +80,7 @@ class Product {
     this.type = type;
   }
 }
+
 
 // Hàm hiển thị danh sách sản phẩm
 function displayProducts(products) {
@@ -90,15 +110,22 @@ function displayProducts(products) {
             <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
             
             </p>
-            <p><button
-             class = "gioHang";
-             style="background-color: #fed100;
-             border: 1px solid #ffc107;
-             border-radius: 10px;
-             height:34px;
-             margin: 10px 12px 12px 0;
-             
-              "><i class="fas fa-shopping-cart"></i> Thêm Giỏ Hàng </button></p>
+
+            <button
+            onClick = {addToCart(${product.id})}
+            class = "gioHang";
+            id = "product-${product.id}"
+            style=
+              "background-color: #fed100;
+              border: 1px solid #ffc107;
+              border-radius: 10px;
+              height:34px;
+              margin: 10px 12px 12px 0;
+              padding: 10px;"
+            >
+              <i class="fas fa-shopping-cart"></i> Thêm Giỏ Hàng 
+            </button>
+           
             </div>
         `;
 
@@ -133,6 +160,8 @@ const products = [
   // Danh sách sản phẩm của bạn
 ];
 
+
+
 // Hiển thị tất cả sản phẩm ban đầu
 function showAllProducts() {
   displayProducts(rawProducts);
@@ -164,3 +193,22 @@ document.querySelector(".filterIphone").addEventListener("click", () => {
 document.querySelector(".filterAll").addEventListener("click", () => {
   showAllProducts();
 });
+
+document.querySelector(".filterAll").addEventListener("click", () => {
+  showAllProducts();
+});
+
+
+//add giỏ hàng
+function addToCart(productId) {
+  const selectedProduct = rawProducts.find((product) => Number(product.id) === productId);
+  console.log(selectedProduct);
+  
+  var dataJson = JSON.stringify(rawProducts);
+    localStorage.setItem("DSSP_LOCAL", dataJson);
+    displayProducts(rawProducts);
+}
+
+function productCart(){
+
+}

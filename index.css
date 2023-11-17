@@ -332,11 +332,10 @@ li {
 .slider-product-one-content-items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04))
-    drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
-  padding: 20px;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
   cursor: pointer;
+  padding: 20px 0;
+  gap: 0 20px;
 }
 
 .slider-product-one-content-item {
