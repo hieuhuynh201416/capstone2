@@ -12,9 +12,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
+    <!-- Modal CSS -->
+    <link rel="stylesheet" href="./css/modal.css">
     <!-- My CSS -->
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
     <header>
@@ -39,7 +40,7 @@
           </li>
           <li>
             <a href=""
-              ><button class="add-to-cart-button" data-product-id="1">
+              ><button class="add-to-cart-button">
                 <i class="fas fa-shopping-cart"></i>Giỏ Hàng
                 <span class="cart-count">0</span>
               </button></a
@@ -175,7 +176,7 @@
             class="footer__item wow animate__animated animate__fadeIn animate__delay-1s"
           >
             <a href="#">
-              <img src="./img/logo-white.png" alt="" />
+              
             </a>
             <ul class="footer__contact">
               <li>
@@ -339,7 +340,32 @@
     </a>
       </div>
     </footer>
-     
-    <script src="./index.js"></script>
+
+    
+    <!-- The Modal -->
+<div id="productModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <!-- Hiển thị thông tin sản phẩm -->
+    <div><img id="modalImg" alt=""></div>
+    <div class="product-name-container" style="text-align: center">
+      <h3 id="modalProductName"></h3>
+    </div>
+    <div class="product-detail-container">
+      <p style="color: red; font-size: 30px" id="modalPrice"></p>
+      <!-- Các thông tin khác về sản phẩm -->
+      <p><strong>Màn hình:</strong> <span id="modalScreen"></span></p>
+      <p><strong>Máy ảnh sau:</strong> <span id="modalBackCamera"></span> pixel</p>
+      <p><strong>Máy ảnh trước:</strong> <span id="modalFrontCamera"></span> pixel</p>
+      <p><strong>Mô tả:</strong><span id="modalDesc"></span></p>
+      <p><strong>Loại:</strong> <span id="modalType"></span></p>
+    </div>
+  </div>
+</div>
+     <!-- Modal JS -->
+     <script src="./js/modal.js"></script>
+    <!-- My JS -->
+    <script src="./js/index.js"></script>
   </body>
 </html>

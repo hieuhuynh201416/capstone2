@@ -38,24 +38,24 @@ function removeactive() {
 
 
 let rawProducts = [];
-var dataJson = localStorage.getItem("DSSP_LOCAL");
-if (dataJson != null) {
-  let result = JSON.parse(dataJson);
-  rawProducts = result.map(function (item){
-    return new productsCart(
-    item.id ,
-    item.name,
-    item.price,
-    item.screen,
-    item.backCamera,
-    item.frontCamera,
-    item.img,
-    item.desc,
-    item.type,
-    );
-  });
-  displayProducts(rawProducts);
-}
+// var dataJson = localStorage.getItem("DSSP_LOCAL");
+// if (dataJson != null) {
+//   let result = JSON.parse(dataJson);
+//   rawProducts = result.map(function (item){
+//     return new productsCart(
+//     item.id ,
+//     item.name,
+//     item.price,
+//     item.screen,
+//     item.backCamera,
+//     item.frontCamera,
+//     item.img,
+//     item.desc,
+//     item.type,
+//     );
+//   });
+//   // displayProducts(rawProducts);
+// }
 // Lớp đối tượng Product
 class Product {
   constructor(
@@ -194,21 +194,22 @@ document.querySelector(".filterAll").addEventListener("click", () => {
   showAllProducts();
 });
 
-document.querySelector(".filterAll").addEventListener("click", () => {
-  showAllProducts();
-});
 
 
 //add giỏ hàng
+const addProductCart = [];
 function addToCart(productId) {
   const selectedProduct = rawProducts.find((product) => Number(product.id) === productId);
   console.log(selectedProduct);
-  
-  var dataJson = JSON.stringify(rawProducts);
-    localStorage.setItem("DSSP_LOCAL", dataJson);
-    displayProducts(rawProducts);
+  addProductCart.push(selectedProduct);
+  console.log(addProductCart);
+  // var dataJson = JSON.stringify(rawProducts);
+  //   localStorage.setItem("DSSP_LOCAL", dataJson);
+    // displayProducts(rawProducts);
 }
 
 function productCart(){
 
 }
+
+
