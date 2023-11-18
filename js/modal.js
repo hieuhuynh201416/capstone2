@@ -1,38 +1,25 @@
-// const addProductCart = [];
-// let cartCount = 0;
+modal = document.getElementById("productModal");
 
-// function addToCart(productId) {
-//   const selectedProduct = rawProducts.find((product) => Number(product.id) === productId);
-//   console.log(selectedProduct);
-//   addProductCart.push(selectedProduct);
-//   cartCount += 1;
-//   console.log(addProductCart);
+// Get the button that opens the modal
+var btn = document.getElementById("modalBtn");
 
-//   // Update the cart count in the button
-//   const cartCountElement = document.querySelector('.cart-count');
-//   if (cartCountElement) {
-//     cartCountElement.innerText = cartCount;
-//   }
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-//   // Show the modal with product information
-//   showModal(selectedProduct);
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+    console.log('hello');
+  modal.style.display = "block";
+}
 
-//   // Optionally, you can update the modal content here
-// }
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-// function showModal(product) {
-//   // Write code to display the modal with product information
-//   // You can use the previous modal code I provided or customize it as needed
-//   // Update modal content with product information
-//   document.getElementById('modalImg').src = product.img;
-//   document.getElementById('modalProductName').innerText = product.name;
-//   document.getElementById('modalPrice').innerText = `$${product.price}`;
-//   document.getElementById('modalScreen').innerText = product.screen;
-//   document.getElementById('modalBackCamera').innerText = product.backCamera;
-//   document.getElementById('modalFrontCamera').innerText = product.frontCamera;
-//   document.getElementById('modalDesc').innerText = product.desc;
-//   document.getElementById('modalType').innerText = product.type ? 'Samsung' : 'iPhone';
-
-//   // Display the modal
-//   modal.style.display = 'block';
-// }
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
