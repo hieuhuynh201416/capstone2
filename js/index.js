@@ -125,6 +125,7 @@ function displayProducts(products) {
   });
 }
 
+//  Hàm hiển thị danh sách MODAL
 function displayProductsInModal(products) {
   const productList = document.querySelector(
     ".selected-product-detail-container"
@@ -137,11 +138,12 @@ function displayProductsInModal(products) {
     productDiv.className = "selected-product-detail-container";
 
     productDiv.innerHTML = `
-            <div><img src="${product.img}" alt="${product.name}"></div>
-            <!-- Hiển thị thông tin sản phẩm -->
-            <div class="product-name-container"  style="text-align: center"> <h3>${product.name
-      }</h3></div>
-            <div class="product-detail-container">
+    <div class="product-container" style="display:flex">
+            <div class="product-image-container" style="width:40%">
+            <img style="width:100%" src="${product.img}" alt="${product.name}">
+            </div>
+            <div class="product-detail-container" style="width:60%">
+            <h3 style="text-align: center">${product.name}</h3>
             <p style="color:red; font-size: 30px" > $${product.price}</p>
             <p><strong>Màn hình:</strong> ${product.screen}</p>
             <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
@@ -149,25 +151,9 @@ function displayProductsInModal(products) {
             <p><strong>Mô tả:</strong>${product.desc}</p>
             <p><strong>Loại:</strong>
             <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
-            
-            </p>
-
-            <button
-            onClick = {addToCart(${product.id})}
-            class = "gioHang";
-            id = "product-${product.id}"
-            style=
-              "background-color: #fed100;
-              border: 1px solid #ffc107;
-              border-radius: 10px;
-              height:34px;
-              margin: 10px 12px 12px 0;
-              padding: 10px;"
-            >
-              <i class="fas fa-shopping-cart"></i> Thêm Giỏ Hàng 
-            </button>
-           
+            </p>                  
             </div>
+   </div>
         `;
 
     productList.appendChild(productDiv);
