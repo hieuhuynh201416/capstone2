@@ -38,24 +38,17 @@ function removeactive() {
 
 
 let rawProducts = [];
-// var dataJson = localStorage.getItem("DSSP_LOCAL");
-// if (dataJson != null) {
-//   let result = JSON.parse(dataJson);
-//   rawProducts = result.map(function (item){
-//     return new productsCart(
-//     item.id ,
-//     item.name,
-//     item.price,
-//     item.screen,
-//     item.backCamera,
-//     item.frontCamera,
-//     item.img,
-//     item.desc,
-//     item.type,
-//     );
-//   });
-//   // displayProducts(rawProducts);
-// }
+let selectedProducts = []
+
+var selectedProductJson = localStorage.getItem("DSSP_LOCAL");
+if (selectedProductJson != null) {
+  selectedProducts = []
+ = JSON.parse(selectedProductJson);
+}
+
+//show number of products in cart
+document.querySelector('.cart-count').innerHTML = selectedProducts.length;
+
 // Lớp đối tượng Product
 class Product {
   constructor(
@@ -97,9 +90,57 @@ function displayProducts(products) {
     productDiv.innerHTML = `
             <div><img src="${product.img}" alt="${product.name}"></div>
             <!-- Hiển thị thông tin sản phẩm -->
-            <div class="product-name-container"  style="text-align: center"> <h3>${
-              product.name
-            }</h3></div>
+            <div class="product-name-container"  style="text-align: center"> <h3>${product.name
+      }</h3></div>
+            <div class="product-detail-container">
+            <p style="color:red; font-size: 30px" > $${product.price}</p>
+            <p><strong>Màn hình:</strong> ${product.screen}</p>
+            <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
+            <p><strong>Máy ảnh trước:</strong> ${product.frontCamera} pixel</p>
+            <p><strong>Mô tả:</strong>${product.desc}</p>
+            <p><strong>Loại:</strong>
+            <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
+            
+            </p>
+
+            <button
+            onClick = {addToCart(${product.id})}
+            class = "gioHang";
+            id = "product-${product.id}"
+            style=
+              "background-color: #fed100;
+              border: 1px solid #ffc107;
+              border-radius: 10px;
+              height:34px;
+              margin: 10px 12px 12px 0;
+              padding: 10px;"
+            >
+              <i class="fas fa-shopping-cart"></i> Thêm Giỏ Hàng 
+            </button>
+           
+            </div>
+        `;
+
+    productList.appendChild(productDiv);
+  });
+}
+
+function displayProductsInModal(products) {
+  const productList = document.querySelector(
+    ".selected-product-detail-container"
+  );
+
+  productList.innerHTML = "";
+
+  products.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.className = "selected-product-detail-container";
+
+    productDiv.innerHTML = `
+            <div><img src="${product.img}" alt="${product.name}"></div>
+            <!-- Hiển thị thông tin sản phẩm -->
+            <div class="product-name-container"  style="text-align: center"> <h3>${product.name
+      }</h3></div>
             <div class="product-detail-container">
             <p style="color:red; font-size: 30px" > $${product.price}</p>
             <p><strong>Màn hình:</strong> ${product.screen}</p>
@@ -162,6 +203,7 @@ const products = [
 
 
 
+
 // Hiển thị tất cả sản phẩm ban đầu
 function showAllProducts() {
   displayProducts(rawProducts);
@@ -198,18 +240,16 @@ document.querySelector(".filterAll").addEventListener("click", () => {
 
 //add giỏ hàng
 const addProductCart = [];
+
 function addToCart(productId) {
   const selectedProduct = rawProducts.find((product) => Number(product.id) === productId);
-  console.log(selectedProduct);
+  selectedProduct.quantity =  1;
   addProductCart.push(selectedProduct);
-  console.log(addProductCart);
-  // var dataJson = JSON.stringify(rawProducts);
-  //   localStorage.setItem("DSSP_LOCAL", dataJson);
-    // displayProducts(rawProducts);
+  var dataJson = JSON.stringify(addProductCart);
+
+  localStorage.setItem("DSSP_LOCAL", dataJson);
 }
 
-function productCart(){
-
-}
+displayProductsInModal(selectedProducts)
 
 
