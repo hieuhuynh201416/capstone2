@@ -139,26 +139,54 @@ function displayProductsInModal(products) {
 
     productDiv.innerHTML = `
     <div class="product-container" style="display:flex">
-            <div class="product-image-container" style="width:40%">
+        <div class="product-image-container" style="width:40%">
             <img style="width:100%" src="${product.img}" alt="${product.name}">
-            </div>
-            <div class="product-detail-container" style="width:60%">
+        </div>
+        <div class="product-detail-container" style="width:60%">
             <h3 style="text-align: center">${product.name}</h3>
-            <p style="color:red; font-size: 30px" > $${product.price}</p>
-            <p><strong>Màn hình:</strong> ${product.screen}</p>
-            <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
-            <p><strong>Máy ảnh trước:</strong> ${product.frontCamera} pixel</p>
-            <p><strong>Mô tả:</strong>${product.desc}</p>
-            <p><strong>Loại:</strong>
-            <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
-            </p>                  
-            </div>
+              <p><strong>Màn hình:</strong> ${product.screen}"</p>
+              <p><strong>Máy ảnh sau:</strong> ${product.backCamera} pixel</p>
+              <p><strong>Máy ảnh trước:</strong> ${product.frontCamera} pixel</p>
+              <p><strong>Mô tả:</strong>${product.desc}</p>
+              <p><strong>Loại:</strong>
+                <span id="loaiSp"> ${product.type ? "Samsung" : "iPhone"}</span>
+              </p>
+          <div>
+            <button onclick="decreaseQuantity() style="w-10 h10">-</button>
+            <span id="quantity">1</span>
+            <button onclick="increaseQuantity()">+</button>
+          </div>
+            <p><strong>Tổng tiền:</strong>
+              <span id="totalPrice">$${product.price}</span>  
+             </p>      
+        </div>
    </div>
         `;
-
-    productList.appendChild(productDiv);
+        productList.appendChild(productDiv);
   });
 }
+let totalPrice = this.price;
+        let quantity = 1;
+        // Giảm só lượng
+        function decreaseQuantity() {
+          if (quantity > 1) {
+            quantity--;
+          }
+          updateTotalPrice();
+        }
+        // Tăng số lương
+        function increaseQuantity() {
+            quantity++;  
+          updateTotalPrice();
+        }
+        // Update giá dựa theo số lượng
+        function updateTotalPrice(){
+          totalPrice = Number(this.price) * Number(quantity);
+          document.getElementById("quantity").innerText = quantity;
+          document.getElementById("totalPrice").innerText = totalPrice;
+        }
+
+
 
 // Gọi API MockAPI để lấy danh sách sản phẩm
 fetch("https://653122e04d4c2e3f333c71f9.mockapi.io/capstone2")
