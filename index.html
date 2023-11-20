@@ -1,345 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>capstone2</title>
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    
-    <!-- My CSS -->
-    <link rel="stylesheet" href="./index.css" />
-  </head>
-  <body>
-    <header>
-      <img src="./HinhAnh/hinh1.png" alt="" />
-    </header>
 
-    <nav>
-      <div class="container">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>capstone2</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Modal CSS -->
+  <link rel="stylesheet" href="./css/modal.css">
+  <!-- My CSS -->
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+  <header>
+    <img src="./HinhAnh/hinh1.png" alt="" />
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li>
+          <a style="text-align: center" href=""><img style="width: 50px" src="./HinhAnh/logo.png" alt="" />
+            <img style="width: 180px" src="./HinhAnh/hinh2.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="">BootCamp58 <i class="fas fa-sort-down"></i></a>
+        </li>
+        <li>
+          <input type="text" placeholder="Tìm kiếm..." />
+          <i class="fas fa-search"></i>
+        </li>
+        <li>
+          <button id="modalBtn" class="add-to-cart-button">
+            <i class="fas fa-shopping-cart"></i>Giỏ Hàng
+            <span class="cart-count">0</span>
+          </button>
+        </li>
+        <li><a href="">Lịch sử đơn hàng</a></li>
+        <li>
+          <a href="">
+            <span class="btn-content"><span class="btn-top"></span></span>Mua
+            thẻ nạp ngay
+          </a>
+        </li>
+        <li><a href="">24h Công Nghệ</a></li>
+        <li><a href="">Hỏi đáp</a></li>
+        <li><a href="./admin/view/phone.html">Đăng nhập</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="menu-bar">
+    <div class="container">
+      <div class="menu-bar-content">
         <ul>
           <li>
-            <a style="text-align: center" href=""
-              ><img style="width: 50px" src="./HinhAnh/logo.png" alt="" />
-              <img style="width: 180px" src="./HinhAnh/hinh2.png" alt=""
-            /></a>
+            <a href=""><i class="fas fa-mobile-alt"></i> Điện Thoại</a>
           </li>
           <li>
-            <a href="">BootCamp58 <i class="fas fa-sort-down"></i></a>
+            <a href=""><i class="fas fa-laptop"></i> Laptop</a>
           </li>
           <li>
-            <input type="text" placeholder="Tìm kiếm..." />
-            <i class="fas fa-search"></i>
+            <a href=""><i class="fas fa-tablet"></i> Tablet</a>
           </li>
           <li>
-            <a href=""
-              ><button class="add-to-cart-button" data-product-id="1">
-                <i class="fas fa-shopping-cart"></i>Giỏ Hàng
-                <span class="cart-count">0</span>
-              </button></a
-            >
+            <a href=""><i class="fas fa-headphones"></i> Phụ Kiện
+              <i style="font-size: 16px; margin-left: 2px" class="fas fa-sort-down"></i></a>
           </li>
-          <li><a href="">Lịch sử đơn hàng</a></li>
           <li>
-            <a href="">
-              <span class="btn-content"><span class="btn-top"></span></span>Mua
-              thẻ nạp ngay
-            </a>
+            <a href=""><i class="fas fa-stopwatch-20"></i> Đồng hồ thời trang</a>
           </li>
-          <li><a href="">24h Công Nghệ</a></li>
-          <li><a href="">Hỏi đáp</a></li>
-          <li><a href="">Game app</a></li>
+          <li>
+            <a href=""><i class="fas fa-stopwatch"></i> Đồng hồ thông minh</a>
+          </li>
+          <li>
+            <a href=""><i class="fas fa-print"></i> PC,Máy in
+              <i class="fas fa-sort-down"></i></a>
+          </li>
+          <li><a href="">Máy cũ giá rẻ</a></li>
+          <li><a href="">Sim thẻ cào</a></li>
+          <li><a href="">Trả góp điện nước</a></li>
         </ul>
       </div>
-    </nav>
-    <section class="menu-bar">
-      <div class="container">
-        <div class="menu-bar-content">
-          <ul>
-            <li>
-              <a href=""><i class="fas fa-mobile-alt"></i> Điện Thoại</a>
-            </li>
-            <li>
-              <a href=""><i class="fas fa-laptop"></i> Laptop</a>
-            </li>
-            <li>
-              <a href=""><i class="fas fa-tablet"></i> Tablet</a>
-            </li>
-            <li>
-              <a href=""
-                ><i class="fas fa-headphones"></i> Phụ Kiện
-                <i
-                  style="font-size: 16px; margin-left: 2px"
-                  class="fas fa-sort-down"
-                ></i
-              ></a>
-            </li>
-            <li>
-              <a href=""
-                ><i class="fas fa-stopwatch-20"></i> Đồng hồ thời trang</a
-              >
-            </li>
-            <li>
-              <a href=""
-                ><i class="fas fa-stopwatch"></i> Đồng hồ thông minh</a
-              >
-            </li>
-            <li>
-              <a href=""
-                ><i class="fas fa-print"></i> PC,Máy in
-                <i class="fas fa-sort-down"></i
-              ></a>
-            </li>
-            <li><a href="">Máy cũ giá rẻ</a></li>
-            <li><a href="">Sim thẻ cào</a></li>
-            <li><a href="">Trả góp điện nước</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-    <section class="slider">
-      <div class="container">
-        <div class="slider-content">
-          <div class="slider-content-left">
-            <div class="slider-content-left-top-container">
-              <div class="slider-content-left-top">
+    </div>
+  </section>
+  <section class="slider">
+    <div class="container">
+      <div class="slider-content">
+        <div class="slider-content-left">
+          <div class="slider-content-left-top-container">
+            <div class="slider-content-left-top">
               <a href=""><img src="./HinhAnh/IP15.png" alt=""></a>
               <a href=""><img src="./HinhAnh/LAP-GAMING.png" alt=""></a>
               <a href=""><img src="./HinhAnh/Oppo.png" alt=""></a>
               <a href=""><img src="./HinhAnh/watch.png" alt=""></a>
               <a href=""><img src="./HinhAnh/Xiaomi.png" alt=""></a>
-              </div>
-              <div class="slider-content-left-top-btn">
-                <i class="fas fa-chevron-left"></i>
-                <i class="fas fa-chevron-right"></i>
-              </div>
-            
             </div>
-            <div class="slider-content-left-bottom">
-              <li class="active">iPhone15</li>
-              <li>Laptop Gaming</li>
-              <li>Oppo</li>
-              <li>Apple Watch</li>
-              <li>Xiaomi</li>
+            <div class="slider-content-left-top-btn">
+              <i class="fas fa-chevron-left"></i>
+              <i class="fas fa-chevron-right"></i>
             </div>
+
           </div>
-          <div class="slider-content-right">
-            <li><a href=""><img src="./HinhAnh/air-2.png" alt=""></a></li>
-            <li><a href=""><img src="./HinhAnh/airpods-3.png" alt=""></a></li>
-            <li><a href=""><img src="./HinhAnh/masstel-tab-10s.png" alt=""></a></li>
-            <li><a href=""><img src="./HinhAnh/masstel-tab-82.png" alt=""></a></li>
+          <div class="slider-content-left-bottom">
+            <li class="active">iPhone15</li>
+            <li>Laptop Gaming</li>
+            <li>Oppo</li>
+            <li>Apple Watch</li>
+            <li>Xiaomi</li>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="banner-one">
-      <div class="container">
-        <img src="./HinhAnh/hinh3.png" alt="" />
-      </div>
-    </section>
-    <!-- Slider product -->
-    <section class="slider-product-one">
-      <div class="container">
-        <div class="slider-product-one-content">
-          
-            <div class="slider-product-one-content-title">
-            <h2>Danh Sách Sản Phẩm</h2>
-            </div>
-            <div class="slider-product-one-content-button">
-            <button class="filterSamSung">SamSung</button>
-            <button class="filterIphone">Iphone</button>
-            <button class="filterAll">Tất cả</button>
-                        </div>
-          
+        <div class="slider-content-right">
+          <li><a href=""><img src="./HinhAnh/air-2.png" alt=""></a></li>
+          <li><a href=""><img src="./HinhAnh/airpods-3.png" alt=""></a></li>
+          <li><a href=""><img src="./HinhAnh/masstel-tab-10s.png" alt=""></a></li>
+          <li><a href=""><img src="./HinhAnh/masstel-tab-82.png" alt=""></a></li>
         </div>
-          <div class="slider-product-one-content-items">
-            <!-- <div class="slider-product-one-content-item">
+      </div>
+    </div>
+  </section>
+  <section class="banner-one">
+    <div class="container">
+      <img src="./HinhAnh/hinh3.png" alt="" />
+    </div>
+  </section>
+  <!-- Slider product -->
+  <section class="slider-product-one">
+    <div class="container">
+      <div class="slider-product-one-content">
+
+        <div class="slider-product-one-content-title">
+          <h2>Danh Sách Sản Phẩm</h2>
+        </div>
+        <div class="slider-product-one-content-button">
+          <button class="filterSamSung">SamSung</button>
+          <button class="filterIphone">Iphone</button>
+          <button class="filterAll">Tất cả</button>
+        </div>
+
+      </div>
+      <div class="slider-product-one-content-items">
+        <!-- <div class="slider-product-one-content-item">
               
             
             </div> -->
-          </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <br><br><br>
+  <footer>
+    <div class="container">
+      <div class="footer__bottom">
+        <div class="footer__item wow animate__animated animate__fadeIn animate__delay-1s">
+          <a href="#">
+
+          </a>
+          <ul class="footer__contact">
+            <li>
+              <i class="fa fa-phone"></i>
+              <span>
+                096.105.1014
+                <br />
+                +84 96.105.1014
+              </span>
+            </li>
+            <li>
+              <i class="fa fa-envelope"></i>
+              <span>
+                info@example.com
+                <br />
+                services@gmail.com
+              </span>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>
+                112 Cao Thắng, Quận 3
+                <br />
+                HCM city
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__item wow animate__animated animate__fadeIn animate__delay-1s">
+          <h3>Our links</h3>
+          <ul>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                About Us
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Services
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Team
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Blog
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__item wow animate__animated animate__fadeIn animate__delay-1s">
+          <h3>Our Services</h3>
+          <ul>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Strategy & Research
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Web Development
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Web Solution
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Digital Marketing
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                App Design
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__item wow animate__animated animate__fadeIn animate__delay-1s">
+          <h3>Other links</h3>
+          <ul>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                FAQ
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Privacy Policy
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Terms & Conditions
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-angle-right"></i>
+                Support
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
-    </section>
-    <br><br><br>
-    <footer>
-      <div class="container">
-        <div class="footer__bottom">
-          <div
-            class="footer__item wow animate__animated animate__fadeIn animate__delay-1s"
-          >
-            <a href="#">
-              <img src="./img/logo-white.png" alt="" />
-            </a>
-            <ul class="footer__contact">
-              <li>
-                <i class="fa fa-phone"></i>
-                <span>
-                  096.105.1014
-                  <br />
-                  +84 96.105.1014
-                </span>
-              </li>
-              <li>
-                <i class="fa fa-envelope"></i>
-                <span>
-                  info@example.com
-                  <br />
-                  services@gmail.com
-                </span>
-              </li>
-              <li>
-                <i class="fas fa-map-marker-alt"></i>
-                <span>
-                  112 Cao Thắng, Quận 3
-                  <br />
-                  HCM city
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="footer__item wow animate__animated animate__fadeIn animate__delay-1s"
-          >
-            <h3>Our links</h3>
-            <ul>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Team
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="footer__item wow animate__animated animate__fadeIn animate__delay-1s"
-          >
-            <h3>Our Services</h3>
-            <ul>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Strategy & Research
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Web Development
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Web Solution
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Digital Marketing
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  App Design
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div
-            class="footer__item wow animate__animated animate__fadeIn animate__delay-1s"
-          >
-            <h3>Other links</h3>
-            <ul>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  FAQ
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i class="fa fa-angle-right"></i>
-                  Support
-                </a>
-              </li>
-            </ul>
-          </div>
+    </div>
+    <div class="footer__copyright">
+      <div class="container footer__content">
+        <div class="footer__left">
+          Capstone © 2023 <span>Hiếu</span> . All rights reserved.
+        </div>
+        <div class="footer__right">
+          <a href="#">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="">
+            <i class="fab fa-twitter"></i>
+          </a>
         </div>
       </div>
-      <div class="footer__copyright">
-        <div class="container footer__content">
-          <div class="footer__left">
-            Capstone © 2023 <span>Hiếu</span> . All rights reserved.
-          </div>
-          <div class="footer__right">
-            <a href="#">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <a href="#" class="cd-top text-replace js-cd-top"><i class=”fas fa-angle-up”></i></a>
+    </div>
+    <a href="#" class="cd-top text-replace js-cd-top"><i class=”fas fa-angle-up”></i></a>
     </a>
+    </div>
+  </footer>
+
+
+  <!-- The Modal -->
+  <div id="productModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <!-- Hiển thị thông tin sản phẩm -->
+      <div class="selected-product-detail-container">
       </div>
-    </footer>
-     
-    <script src="./index.js"></script>
-  </body>
+    </div>
+  </div>
+  <!-- Modal JS -->
+  <script src="./js/modal.js"></script>
+  <!-- My JS -->
+  <script src="./js/index.js"></script>
+</body>
+
 </html>
